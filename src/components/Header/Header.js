@@ -1,17 +1,31 @@
 import React from "react";
 import "./Header.css";
+import AppLogo from "../AppLogo";
+import Message from "../Message";
+import Scores from "../Scores";
 
-class Title extends React.Component {
+
+
+class Header extends React.Component {
 	render() {
 		return (
 			<div className="page-header">
-				<nav className="navbar navbar-dark bg-dark">
-					<h1 className="navbar-brand mb-0 h1">Navbar</h1>
-					<h1 className="title">{this.props.children}</h1>
+				<nav className="navbar navbar-dark bg-dark fixed-top">
+					<h1 className="navbar-text display-6">
+						<AppLogo className="header-parts">
+							CLicky Game!
+						</AppLogo>
+						<Message className="header-parts">
+							This is s test
+						</Message>
+						<Scores className="header-parts">
+							This is another test
+						</Scores>
+					</h1>
 				</nav>
 			</div >
 		);
 	}
 }
 
-export default Title;
+export default Header;
