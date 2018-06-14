@@ -4,7 +4,7 @@ import "./Message.css";
 class Message extends React.Component {
 	render() {
 		return (
-			<div className="action-message">
+			<div className={`action-message ${this.props.className}`}>
 				{this.props.children}
 			</div >
 		);

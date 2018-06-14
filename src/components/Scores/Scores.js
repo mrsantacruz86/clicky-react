@@ -4,7 +4,7 @@ import "./Scores.css";
 class Scores extends React.Component {
 	render() {
 		return (
-			<div className="active-scores">
+			<div className={`active-scores ${this.props.className}`}>
 				{this.props.children}
 			</div >
 		);

@@ -9,20 +9,27 @@ import Scores from "../Scores";
 class Header extends React.Component {
 	render() {
 		return (
-			<div className="page-header">
-				<nav className="navbar navbar-dark bg-dark fixed-top">
-					<h1 className="navbar-text display-6">
-						<AppLogo className="header-parts">
+			<div className="page-header bg-dark fixed-top">
+				<div className="header-spacer"></div>
+				<div className="row">
+					<div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+						<AppLogo className="header-component">
 							CLicky Game!
 						</AppLogo>
-						<Message className="header-parts">
+					</div>
+
+					<div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+						<Message className="header-component">
 							This is s test
 						</Message>
-						<Scores className="header-parts">
+					</div>
+					<div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+						<Scores className="header-component">
 							This is another test
 						</Scores>
-					</h1>
-				</nav>
+					</div>
+				</div>
+				<div className="header-spacer"></div>
 			</div >
 		);
 	}
