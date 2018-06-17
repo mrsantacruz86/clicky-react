@@ -6,13 +6,17 @@ class Card extends React.Component {
     clicked: false
   };
 
-  handleClick = (event) => {
-
+  handleClick = () => {
+    this.props.checkCard(this.props.id)
+    this.setState(prevState => (
+      {clicked: true}
+    ));
   }
+
   render() {
     return (
       <div className="card">
-        <div className="img-container">
+        <div className="img-container" onClick={this.handleClick}>
           <img alt={this.props.name} src={this.props.image} />
         </div>
       </div>
