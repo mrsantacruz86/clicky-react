@@ -4,7 +4,7 @@ class AppLogo extends React.Component {
 	render() {
 		return (
 			<div className={`App-Logo ${this.props.className}`}>
-				<i class="far fa-hand-pointer"></i> {this.props.children}
+				<i className="far fa-hand-pointer"></i> {this.props.children}
 			</div >
 		);
 	}

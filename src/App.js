@@ -12,7 +12,9 @@ class App extends React.Component {
     this.state = {
       cards: cardsArray,
       score: 0,
-      maxScore: 0
+      maxScore: 0,
+      clickedItems: [],
+      actionMessage:"Select a card to start"
     }
     // this.handleClick = this.handleClick.bind(this);
   }
@@ -31,24 +33,57 @@ class App extends React.Component {
     return elementsArray;
   }
   increaseScore = () => {
-    const sc = this.state.score + 1;
-    this.setState({sc});
+    this.setState({
+      score: this.state.score + 1,
+    });
+  }
+  restart = () => {
+    this.setState({ score: 0 , clickedItems:[]});
   }
   
-  increaseMaxScore = () => {
-    
+  setMaxScore = () => {
+    if (this.state.maxScore <= this.state.score){
+      this.setState({
+        maxScore: this.state.maxScore + 1
+      });
+    }
+  }
+  
+  displayMessage = (msg) => {
+    this.setState({
+      actionMessage:msg
+    });
+  }
+  
+  saveClickedCard = (id)=>{
+    let joined = this.state.clickedItems.concat(id);
+    this.setState({
+      clickedItems: joined
+    });
   }
   
   handleClick = (id) => {
-    alert(this.state.score);
-    const cards = this.shuffleElements(this.state.cards);
-    this.setState({cards});
+    if (this.state.clickedItems.indexOf(id) < 0 ) {
+      this.saveClickedCard(id);
+      this.increaseScore();
+      this.setMaxScore();
+      this.displayMessage("YOU GUESSED CORRECTLY!");
+      const cards = this.shuffleElements(this.state.cards);
+      this.setState({ cards });
+    }else{
+      this.displayMessage("YOU GUESSED INCORRECTLY!");
+      this.restart();
+    }
   }
 
   render() {
     return (
       <div className="App">
-        <Header />
+        <Header 
+          score={this.state.score}
+          maxScore={this.state.maxScore}
+          message={this.state.actionMessage}
+        />
         <Wrapper>
           {this.state.cards.map(card => (
             <Card

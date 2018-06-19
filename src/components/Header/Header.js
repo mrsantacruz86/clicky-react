@@ -20,12 +20,12 @@ class Header extends React.Component {
 
 					<div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
 						<Message className="header-component">
-							This is s test
+							{this.props.message}
 						</Message>
 					</div>
 					<div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
 						<Scores className="header-component">
-							This is another test
+							{`Score: ${this.props.score} | Max Score: ${this.props.maxScore}`}
 						</Scores>
 					</div>
 				</div>

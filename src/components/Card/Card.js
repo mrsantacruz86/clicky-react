@@ -2,15 +2,9 @@ import React from "react";
 import "./Card.css";
 
 class Card extends React.Component {
-  state = {
-    clicked: false
-  };
 
   handleClick = () => {
     this.props.checkCard(this.props.id)
-    this.setState(prevState => (
-      {clicked: true}
-    ));
   }
 
   render() {
@@ -20,7 +14,6 @@ class Card extends React.Component {
           <img alt={this.props.name} src={this.props.image} />
         </div>
       </div>
-
     );
   }
 }
